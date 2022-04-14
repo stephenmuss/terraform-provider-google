@@ -248,6 +248,10 @@ The `config` block supports:
 * `root_volume` -
   (Optional)
   Optional. Template for the root volume provisioned for node pool nodes. Volumes will be provisioned in the availability zone assigned to the node pool subnet. When unspecified, it defaults to 32 GiB with the GP2 volume type.
+
+* `proxy_config` -
+  (Optional)
+  Proxy configuration for outbound HTTP(S) traffic.
     
 * `security_group_ids` -
   (Optional)
@@ -306,6 +310,16 @@ The `root_volume` block supports:
 * `volume_type` -
   (Optional)
   Optional. Type of the EBS volume. When unspecified, it defaults to GP2 volume. Possible values: VOLUME_TYPE_UNSPECIFIED, GP2, GP3
+
+The `proxy_config` block supports:
+    
+* `secret_arn` -
+  (Required)
+  The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy configuration.
+    
+* `secret_version` -
+  (Required)
+  The version string of the AWS Secret Manager secret that contains the HTTP(S) proxy configuration.
     
 The `ssh_config` block supports:
     
